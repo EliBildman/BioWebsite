@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    
+    div.container.p-3
+        div.container.p-0
+            div.row.my-4
+                -for(var i = 0; i < projects.length; ++i)
+                    div.col-xl-3.col-lg-4.col-md-6.col-12.mb-4
+                        a(href= projects[i].href)
+                            div.card.rounded-0.p-0.m-0.h-100.border-secondary.bg-light
+                                img.card-img-top.rounded-0(src= projects[i].thumbnail)
+                                div.card-body
+                                    h3.card-body.px-0.pt-0.text-primary= projects[i].name
+                                    p.card-text= projects[i].description
+                                
+                            
+                    

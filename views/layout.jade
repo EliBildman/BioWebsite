@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title= page
+    link(rel="stylesheet" href="/stylesheets/bootstrap.css")
+    script(src="/javascripts/jquery.min.js")
+    script(src="/javascripts/popper.min.js")
+    script(src="/javascripts/bootstrap.min.js")
+    link(rel="stylesheet" href="/stylesheets/custom.css")
+    link(href="/stylesheets/roboto.css" rel="stylesheet")
+  body.bg-light.container
+    .row.justify-content-between.border-bottom.border-secondary.py-2.px-4
+      
+      div.w-100.w-auto-sm.text-center
+        h1.m-0.text-primary= page
+
+      div.w-100.w-auto-sm.text-center
+        nav.navbar.d-inline-block-sm.pb-0
+          a(href= "/about" class= section === "About" ? "active" : "inactive").nav-link.px-4 About
+          a(href= "/projects" class= section === "Projects" ? "active" : "inactive").nav-link.px-4.border-left.border-right.border-secondary Projects
+          a(href= "/art" class= section === "Art" ? "active" : "inactive").nav-link.px-4 Art
+
+    block content

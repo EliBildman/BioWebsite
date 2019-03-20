@@ -1,0 +1,16 @@
+extends project_demo
+
+block project
+    script(src="/javascripts/wallpaperGeneratorHelper.js")
+    h1.text-primary.p-2 Designs
+    .row.w-100
+        .col-4
+            .mx-1(style= 'background-image: url(\'/images/wallpapergenerator/d1.png\'); border: 3px solid red').wall-disp.design#1
+                h1.text-light.p-1.ml-3 1
+        .col-4
+            .mx-1(style= 'background-image: url(\'/images/wallpapergenerator/d2.png\'); border: 3px solid black').wall-disp.design#2
+                h1.text-light.p-1.ml-3 2
+        .col-4
+            .mx-1(style= 'background-image: url(\'/images/wallpapergenerator/d3.png\'); border: 3px solid black').wall-disp.design#3
+                h1.text-light.p-1.ml-3 3
+    .row.w-100#display

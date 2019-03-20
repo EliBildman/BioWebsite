@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    .navbar.navbar-primary.navbar-expand
+        ul.mr-auto.navbar-nav
+            li.nav-item(class= demo_link != null ? "" : "d-none")
+                a(href= demo_link).nav-link.inactive
+                    h4 Demo
+            li.nav-item
+                a(href="").nav-link
+                    h4 Description
+
+    block description
+    

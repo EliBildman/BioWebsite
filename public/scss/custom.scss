@@ -1,0 +1,12 @@
+
+$primary: #700000;
+$secondary: #AAAAAA;
+
+$theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary
+);
+
+$font-family-sans-serif: "Roboto";
+
+@import '../../node_modules/bootstrap/scss/bootstrap';

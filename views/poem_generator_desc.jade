@@ -1,0 +1,46 @@
+extends project_desc
+
+block description
+    div
+        h2.text-primary Overview
+        p.text-dark.d-inline This is a poem generator I wrote in Python, based almost completely on Marcov Text Chains. IT uses the
+        | 
+        a(href="http://poetrydb.org").d-inline poetrydb.org
+        | 
+        p.d-inline API to get about a megabyte of input poems and wrote the generation algorithm from scratch. I made this project to try and solidify my skills working with APIs. It took sifting through many APIs with many shortcomings, and leaning how to implement them all before I settled on potrydb.org, which I liked the most because it doesn't have usage limits and I wanted to download most if not all of the database I was using.
+    br
+    div
+        h2.text-primary Marcov Text Chains
+        p.text-dark Marcov Chains work to find unique but recognizable chains of words given an input text. Text chains are created by starting with any word within the input text, and repeatedly taking a random word that follows our current word at some point in the input. 
+        p For example, if we had the input text:
+        h5.ml-3.mb-3 "Jack and Jill went up a hill to fetch a pail of water. Jack fell down and broke this crown and Jill came tumbling after."
+        p We start our chain by choosing a random word in the text, in this case we'll choose 'Jill'. So currently, our chain looks like this:
+        h5.ml-3.mb-3 ['Jill']
+        p We then find all the words in the input text that directly follow the end of the chain, currently 'Jill'.
+        h5.ml-3.mb-3 "Jack and
+            | 
+            p.d-inline
+                b Jill
+            | 
+            p.d-inline(style= "color: red") went
+            | 
+            p.d-inline up a hill to fetch a pail of water. Jack fell down and broke the crown and 
+            | 
+            p.d-inline
+                b Jill
+            | 
+            p.d-inline(style= "color: red") came
+            | 
+            p.d-inline tumbling after."
+        p In this case, the following words are 'went' and 'came'. We then append one of these words chosen randomly to the end of the chain. Now our chain is:
+        h5.ml-3.mb-3 ['Jill', 'went']
+        p Repeating this process as many times as we want, we can create a sentence that mirrors the form of the input text.
+        h5.ml-3.mb-3 ['Jill', 'went', 'up', 'a', 'pail', 'of', 'water']
+        p We can then put the chain together with normal punctuation to get a full sentence.
+        h5.ml-3.mb-3 Jill went up a pail of water.
+        p The sentence doesn't make sense, but is recognizable as similar to the input text, and usually follows a readable gramatical form. With bigger input texts there are more unique posibilities for output texts.
+        p Changing our process only slightly, we can first load the input text into a weighted map, directional connections and weights being determined on how often the connection occurs in the input text. This is how words are stored in the poem generator.
+        p.d-inline A more complicated description, including implementation details can be found here:
+        | 
+        a(href="https://rosettacode.org/wiki/Markov_chain_text_generator") https://rosettacode.org/wiki/Markov_chain_text_generator
+    br

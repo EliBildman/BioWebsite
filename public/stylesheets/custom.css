@@ -1,0 +1,97 @@
+/* body {
+  padding-top: 70px;
+} */
+
+.h-100px {
+  height: 100px;
+}
+
+/* .card {
+  border-width: 3px;
+} */
+
+.vbottom{
+  position: relative;
+  top: 100%;
+  transform: translateY(-100%); 
+}
+
+.table {
+  margin-left: -12px;
+  margin-right: -12px;
+}
+
+.white {
+  background-color: white;
+}
+
+.inactive {
+  opacity: 0.6;
+}
+
+.full-image {
+  background-image: url("/images/bio3.png");
+  background-size: cover;
+  background-position-x: 55%;
+
+}
+
+.full {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.info {
+  position: absolute;
+  top: 8%;
+  right: 8%;
+  text-align: right;
+}
+
+.info > h1 {
+  font-size: 6rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .secondary-text > h6 {
+    font-size: 0.8rem;
+  }
+
+  .secondary-text > h4 {
+    font-size: 1rem;
+  }
+  .info > h1 {
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .secondary-text > h6 {
+    font-size: 0.7rem;
+  }
+
+  .secondary-text > h4 {
+    font-size: 0.8rem;
+  }
+  .info > h1 {
+    font-size: 3rem;
+  }
+}
+
+select.custom-select {
+  -webkit-appearance: none;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .w-auto-sm {
+    width: auto !important;
+  }
+}
+
+.wall-disp {
+  background-position: center;
+  height: 75px;
+}
