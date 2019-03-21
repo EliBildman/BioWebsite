@@ -2,7 +2,6 @@ extends project_demo
 
 block project
     script(src="/javascripts/wallpaperGeneratorHelper.js")
-    h1.text-primary.p-2 Designs
     .row.w-100
         .col-4
             .mx-1(style= 'background-image: url(\'/images/wallpapergenerator/d1.png\'); border: 3px solid red').wall-disp.design#1
@@ -13,4 +12,17 @@ block project
         .col-4
             .mx-1(style= 'background-image: url(\'/images/wallpapergenerator/d3.png\'); border: 3px solid black').wall-disp.design#3
                 h1.text-light.p-1.ml-3 3
-    .row.w-100#display
+    .row.w-100.mt-3
+        .col-3
+            .input-group
+                label.input-group-text.rounded-0 Quality
+                select.custom-select#lines
+                    option(value= "1") Full (Slow)
+                    option(value = "2") Half
+                    option(selected value= "4") Quarter
+        .col
+            button.btn.btn-light.border-dark(onclick="generate();" type="button") Generate
+    .row.w-100
+        .col.mt-3.mx-auto.border.border-dark.p-0.bg-secondary#wallpaper-display.mb-3
+            h1#loading.text-light
+            #image.w-100.h-100

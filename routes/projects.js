@@ -3,6 +3,7 @@ var jsonfile = require('jsonfile');
 var path = require('path');
 var router = express.Router();
 var spawn = require('child_process').spawn;
+var clearFolder = require('../tools/clear_folder').clearFolderCondional;
 
 router.get('/', function(req, res, next) {
     jsonfile.readFile(path.join(__dirname, '..', 'public', 'data', 'projects.json'), (err, obj) => {
@@ -51,19 +52,27 @@ router.get('/wallpapergenerator/description', (req, res, next) => {
 
 
 router.get('/wallpapergenerator/generate', (req, res, next) => {
-    //console.log(req.query('width'));
+
     if(req.query['security'] === 'noSmap') {
-        res.send("Generating");
         var proc = spawn('python', [path.join(__dirname, '..', 'Projects', 'WallpaperGenerator', 'runner.py'), req.query['design'], req.query['width'], req.query['height'], path.join(__dirname, '..', 'public', 'images', 'wallpapers', req.query['id'] + '.png')]);
         //console.log(proc);
-        proc.stdout.on('data', (data) => {
-
+        proc.on('close', (data) => {
             res.end("Generated");
-            
         });
+        clearFolder(path.join(__dirname, '..', 'public', 'images', 'wallpapers'), (files) => { 
+            if(files.length >= 10) {
+                console.log('clearing stored wallpapers...');
+                return true;
+            }
+            return false;
+         });
     } else {
         res.redirect('/projects');
     }
+});
+
+router.get('/website', (req, res, next) => {
+    res.render('website', {page: "Website", section: "Projects"});
 });
 
 module.exports = router;

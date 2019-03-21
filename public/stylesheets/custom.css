@@ -95,3 +95,38 @@ select.custom-select {
   background-position: center;
   height: 75px;
 }
+
+#wallpaper-display {
+  max-width: 75%;
+  height: 300px;
+}
+
+@media only screen and (min-width: 768px) {
+  #wallpaper-display {
+    max-width: 600px;
+    height: 338px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  #wallpaper-display {
+    max-width: 700px;
+    height: 394px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #wallpaper-display {
+    max-width: 900px;
+    height: 506px;
+  }
+}
+
+#loading {
+  position: relative;
+  top: 45%;
+  left: 40%;
+  height: 0px;
+  margin: 0;
+  /* margin-left: 40%; */
+}
