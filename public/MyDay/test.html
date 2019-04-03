@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="packages/jquery-3.3.1.js"></script>
+</head>
+<body>
+  <div id="x">1</div>
+  <div id="x">2</div>
+  <div id="x">3</div>
+  <script>
+    let divs = $("#x");
+    console.log(divs);
+    for(let i = 0; i < divs.length; i++) {
+      divs[i].html(":)");
+    }
+  </script>
+</body>
+</html>

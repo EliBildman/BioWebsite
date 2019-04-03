@@ -13,7 +13,7 @@ block description
         h2.text-primary Marcov Text Chains
         p.text-dark Marcov Chains work to find unique but recognizable chains of words given an input text. Text chains are created by starting with any word within the input text, and repeatedly taking a random word that follows our current word at some point in the input. 
         p For example, if we had the input text:
-        h5.ml-3.mb-3 "Jack and Jill went up a hill to fetch a pail of water. Jack fell down and broke this crown and Jill came tumbling after."
+        h5.ml-3.mb-3 "Jack and Jill went up a hill to fetch a pail of water. Jack fell down and broke his crown and Jill came tumbling after."
         p We start our chain by choosing a random word in the text, in this case we'll choose 'Jill'. So currently, our chain looks like this:
         h5.ml-3.mb-3 ['Jill']
         p We then find all the words in the input text that directly follow the end of the chain, currently 'Jill'.
@@ -24,7 +24,7 @@ block description
             | 
             p.d-inline(style= "color: red") went
             | 
-            p.d-inline up a hill to fetch a pail of water. Jack fell down and broke the crown and 
+            p.d-inline up a hill to fetch a pail of water. Jack fell down and broke his crown and 
             | 
             p.d-inline
                 b Jill

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1 id="alexplease" style="font-size: 50px; color: red;"></h1>
+<script defer>
+  var i = 0;
+  var header = document.getElementById("alexplease");
+  var words = ["alex", "if", "I", "don't", "eat", "soon", "I'll", "die"];
+  var interval = setInterval(putword, 1000);
+  function putword() {
+    if(i < words.length) {
+      header.append(words[i] + " ");
+      i++;
+    } else {
+      document.body.style = "background-image: url(\"https://cdn.shopify.com/s/files/1/1061/1924/products/Loudly_Crying_Face_Emoji_large.png?v=1480481054\")";
+      clearInterval(interval);
+    }
+  }
+</script>
+</body>
+</html>

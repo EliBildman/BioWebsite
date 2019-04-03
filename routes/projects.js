@@ -75,4 +75,8 @@ router.get('/website', (req, res, next) => {
     res.render('website', {page: "Website", section: "Projects"});
 });
 
+router.get('/myday', (req, res, next) => {
+    res.render('myday', {page: "My Day", section: "Projects"});
+});
+
 module.exports = router;
