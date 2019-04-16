@@ -55,5 +55,5 @@ def generate(size, savepath):
     for i in range(len(tris)):
         tris[i].fill(pxs, pallet[abs(n / 2 - i)])
     img.save(savepath, "PNG")
-    print 'Done'
+    print('Done')
     

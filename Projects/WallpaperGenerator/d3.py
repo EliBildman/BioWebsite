@@ -44,4 +44,4 @@ def generate(size, savepath):
         i += 1
 
     img.save(savepath, "PNG")
-    print 'Done'
+    print('Done')
