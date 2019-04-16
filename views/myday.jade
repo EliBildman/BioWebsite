@@ -1,1 +1,26 @@
-include ../public/MyDay/index.html
+extends project_demo
+
+block project
+    link(rel="stylesheet" href="/MyDay/css/style.css")
+    script(src="/MyDay/scripts/helpers.js")
+    script(defer src="/MyDay/scripts/breif.js")
+    script(src="/MyDay/scripts/map.js")
+    script(src="/MyDay/packages/jquery-3.3.1.js")
+    script(src="/MyDay/scripts/calendar-connect.js")
+    script(src="https://unpkg.com/axios/dist/axios.min.js")
+    script(async defer src="https://apis.google.com/js/api.js" onload="handleClientLoad()")
+    script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbAQtrrFdoZs-yfxiPSbR4JHBu9xLMJBA" type="text/javascript")
+    
+    #content
+        #breif.info
+            #clock
+            #date
+            #weather
+                #icon
+                #type
+                #temp
+                #location
+    #window
+    #info.info
+        table#list
+    #map
