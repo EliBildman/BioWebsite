@@ -4,6 +4,7 @@ var path = require('path');
 var router = express.Router();
 var spawn = require('child_process').spawn;
 var clearFolder = require('../tools/clear_folder').clearFolderCondional;
+var fs = require('fs');
 
 router.get('/', function(req, res, next) {
     jsonfile.readFile(path.join(__dirname, '..', 'public', 'data', 'projects.json'), (err, obj) => {
@@ -59,13 +60,16 @@ router.get('/wallpapergenerator/generate', (req, res, next) => {
         proc.on('close', (data) => {
             res.end("Generated");
         });
-        clearFolder(path.join(__dirname, '..', 'public', 'images', 'wallpapers'), (files) => { 
-            if(files.length >= 10) {
-                console.log('clearing stored wallpapers...');
-                return true;
-            }
-            return false;
-         });
+        let paps = path.join(__dirname, '..', 'public', 'images', 'wallpapers');
+        if(fs.existsSync(paps)) {
+            clearFolder(paps, (files) => { 
+                if(files.length >= 10) {
+                    console.log('clearing stored wallpapers...');
+                    return true;
+                }
+                return false;
+            });
+        }
     } else {
         res.redirect('/projects');
     }
