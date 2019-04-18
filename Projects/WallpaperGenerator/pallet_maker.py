@@ -74,7 +74,7 @@ def close_pallet(n, r = 120):
     pallet = []
     ah = randint(0, 359)
     s = randint(30, 70) / 100.0
-    v = randint(30, 70) / 100.0
+    v = randint(50, 70) / 100.0
     step = r/n
     for i in range(n):
         pallet.append(helpers.to_rgb((ah + step * i, s, v)))
