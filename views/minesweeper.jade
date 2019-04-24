@@ -1,0 +1,10 @@
+extends project_demo
+
+block project
+    script(src= "/javascripts/minesweeper.js")
+    .row
+
+        #game.col
+        #display.col.d-none
+            h3.text-primary#message
+            button.btn.btn-primary(onclick= "startGame()") Play Again

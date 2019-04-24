@@ -20,7 +20,7 @@
         "description": "A website built from scratch in Node JS.",
         "href": "/projects/website",
         "git": "",
-        "thumbnail": "/images/project_thumbnails/cash.png"
+        "thumbnail": "/images/project_thumbnails/nodejs.png"
     },
 
     {
@@ -32,9 +32,9 @@
     },
 
     {
-        "name": "Yhatzee",
-        "description": "A Text-based yhatzee game",
-        "href": "/projects/yhatzee",
+        "name": "Minesweepr",
+        "description": "An HTML Minesweper",
+        "href": "/projects/minesweeper",
         "git": "",
         "thumbnail": "/images/project_thumbnails/yhat.png"
     }
