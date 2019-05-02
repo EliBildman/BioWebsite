@@ -8,7 +8,7 @@ block content
                 a(href="").nav-link
                     h4 Demo
             li.nav-item
-                a(href= desc_link).nav-link.inactive
+                a(href= desc_link class= desc_link != null ? "" : "d-none").nav-link.inactive
                     h4 Description
 
     block project

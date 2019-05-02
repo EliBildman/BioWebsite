@@ -24,18 +24,10 @@
     },
 
     {
-        "name": "MyDay",
-        "description": "A Google API based webapp to map your daily route.",
-        "href": "/projects/myday",
-        "git": "",
-        "thumbnail": "/images/project_thumbnails/map.png"
-    },
-
-    {
-        "name": "Minesweepr",
+        "name": "Minesweeper",
         "description": "An HTML Minesweper",
         "href": "/projects/minesweeper",
         "git": "",
-        "thumbnail": "/images/project_thumbnails/yhat.png"
+        "thumbnail": "/images/project_thumbnails/mine.png"
     }
 ]

@@ -100,7 +100,6 @@ class Tile {
                 }
             } else {
                 if(!this.flipped) {
-                    console.log(this.id);
                     this.flag();
                 }
             }

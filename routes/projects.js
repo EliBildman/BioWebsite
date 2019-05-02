@@ -84,11 +84,8 @@ router.get('/myday', (req, res, next) => {
 });
 
 router.get('/minesweeper', (req, res, next) => {
-    res.render('minesweeper', {page: "Minesweeper", section: "Projects", desc_link: "/projects/minesweeper/description"});
+    res.render('minesweeper', {page: "Minesweeper", section: "Projects"});
 });
 
-router.get('/minesweeper/description', (req, res, next) => {
-    res.render('minesweeper_desc', {page: "Minesweeper", section: "Projects", demo_link: "/projects/minesweeper"});
-});
 
 module.exports = router;

@@ -2,16 +2,80 @@ extends project_desc
 
 block description
     h1.text-primary Overview
-    p.text-dark This is a wallpaper generator I wrote in python. It uses heavily the Python Image Library, or Pillow, as well as a goemetry library I wrote myself. I made this project to explore the possibilities of a geometry library, and because I wanted to crate something colorful. I ended up finding the generalizing of geometrical patterns very interesting.
+    p.text-dark This is a wallpaper generator I wrote in python. It uses heavily the Python Image Library, or Pillow, as well as a geometry library I wrote. I made this project to explore the possibilities of programmatic geometry, and because I wanted to crate something colorful. I ended up finding generalizing geometrical patterns very interesting, and worked way more on the mathematical aspect of the project than actually creating aesthetic wallpapers. The geometry library is broken into a ladder of abstraction, starting with a point, and ending on an N-Gon (a theoretically infinitely sided 2D shape).
 
     h1.text-primary Point
+
     p.text-dark A point is the simplist set of geometric data. A point has an X coordinate and a Y coordinate (in 2 dimensional space). In code, points can be represented as a 2D touple.
-    p.text-dark In the wallpaper generator, to render a point, the X and Y values are rounded to their nearest integer to fit into the grid system of a screen.
+    p.text-dark In the wallpaper generator, to render a point the X and Y values, which could be non-integers, are rounded to their nearest whole number to fit into the grid system of the screen.
+    img(src= "/images/point.png" style= "max-width: 150px; max-height: 150px;").d-block
+        
+
+    
 
     h1.text-primary Line
-    p.text-dark A line consists of two points, and the infinite set of points that lie directly betwen them. 
+    
+
+    p.text-dark A line, more technically named a line segment, consists of two defining points, and the infinite set of points that lie directly between them. To calculate the points the need to be rendered between, we can do a simple repeated calculation using the slope of the line. Slope (M) is calculated by dividing the change in Y (dY) over the course of the line by the change in X (dX).
+    img(src= "/images/line.png" style= "max-width: 350px;").d-block
+
+    p.text-dark You can then calculate all the points between by starting at your lower X-value point and repeatedly adding C (some constant) and M * C to Y. C can be decreased to increase definition.
+
+    .ml-4
+        pre.border.p-3.d-inline-block.rounded
+            code
+                |m = (point2.y - point1.y) / (point2.x - point1.x)
+                |x = point1.x
+                |y = piont1.y
+                |while(x != point1.x) {
+                |    interPoints.add(x, y)
+                |    x += c
+                |    y += c * m
+                |}
 
     h1.text-primary Triangle
-    p.text-dark Triangles are three points, and three lines connecting them. They contain all the area set withing their lines.
+    
+    p.text-dark Triangles consist of three points, three lines connecting them, and all the space contained within.
+
+    img(src= "/images/triangle.png" style= "width: 300px;").d-block
+
+    p.text-dark To test if a point is contained within the lines of a triangle, you can run a relatively simple series of conditionals on the coordinates against the containing points’ coordinates.
+
+    img(src= "/images/triangle-within.png" style= "width: 300px;").d-block
+
+    p.text-dark In the diagram above, we first find that the point is vertically between Line 1 and Line 3 by comparing x1 to the two x-values for all the lines and finding the two it lies within. If x1 doesn’t line up with exactly two of the lines in the triangle, we know it’s not within the triangle. From there, we find the y values of the lines at x1. This is calculated in the geometry library with L1[x1] and L2[x1] due to python letting you redefine the Object[i] notation for custom objects (a great feature). If y1 lies between these two calculated y values, the point is contained in the triangle. In the diagram above, y2 is between L1[x1] and L2[x2] so the point is within the triangle.
+
+    .ml-4
+        pre.border.p-3.d-inline-block.rounded
+            code
+                |def contains_point(self, point):
+                |    if self.sorted_verts[0][0] <= point[0] <= self.sorted_verts[2][0]:
+                |        if point[0] <= self.sorted_verts[1][0]:
+                |            return self.sorted_lines[0][point[0]] <= point[1] <= self.sorted_lines[2][point[0]]
+                |               or self.sorted_lines[0][point[0]] >= point[1] >= self.sorted_lines[2][point[0]]
+                |        else:
+                |            return self.sorted_lines[1][point[0]] <= point[1] <= self.sorted_lines[2][point[0]]
+                |               or self.sorted_lines[1][point[0]] >= point[1] >= self.sorted_lines[2][point[0]]
+                |    return False
+                
+
+    p.text-dark Outlining can be done by using three line objects as defined above connecting the three vertices. To fill it, you can just color all the pixels that calculate as within the triangle.
 
     h1.text-primary NGon
+
+    p.text-dark This was the goal and my favorite part of the geometric library. Any convex shape can be created by just stitching together triangles. One point is chosen as the focus and triangles are created by connecting the focus point with two adjacent points, moving across the rest of the shape. Each non-focus point is included in two triangles connecting it to its neighbor and the focus. You can express it programatically like this:
+
+    .ml-4
+    pre.border.p-3.d-inline-block.rounded
+        code
+            |triangles = []
+            |focus = points[0]
+            |for(i in [2, points.length]) {
+            |   triangles.add(Triangle(focus, points[i], points[i - 1]))
+            |}
+
+    p.text-dark Here it is diagramically:
+
+    img(src= "/images/ngon.png" style= "width: 900px;").d-block
+
+    p.text-dark Checking for containing points, filling and outlining can all be done by iterating over the composing triangles and running the same operation, including an OR statement for booleans.
