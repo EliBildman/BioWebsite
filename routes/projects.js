@@ -87,5 +87,39 @@ router.get('/minesweeper', (req, res, next) => {
     res.render('minesweeper', {page: "Minesweeper", section: "Projects"});
 });
 
+router.get('/maze', (req, res, next) => {
+    res.render('maze', {page: "Maze", section: "Projects"});
+});
+
+router.get('/maze/solve', (req, res, next) => {
+    console.log(req.query['data']);
+    res.end('recieved');
+});
+
+router.get('/schedulegrabber', (req, res, next) => {
+    res.render('schedule_grabber', {page: "Schedule Grabber", section: "Projects"});
+});
+
+router.post('/schedulegrabber/post', (req, res, next) => {
+    let shifts = {};
+    if(req.query['append'] === 'true') {
+        shifts = JSON.parse(fs.readFileSync(path.join(__dirname, '..' , 'public', 'data', 'ScheduleGrabber', 'shifts.json')));
+        Object.keys(req.body).forEach((name) => {
+            if(shifts[name]) {
+                shifts[name] = shifts[name].concat(req.body[name]);
+            } else {
+                shifts[name] = req.body[name];
+            }
+        });
+    } else {
+        shifts = req.body;
+    }
+    fs.writeFile(path.join(__dirname, '..' , 'public', 'data', 'ScheduleGrabber', 'shifts.json'), JSON.stringify(shifts), 'utf-8', (err) => {
+        if(err) {
+            throw err;
+        } 
+    });
+    res.end();
+});
 
 module.exports = router;

@@ -16,18 +16,26 @@
     },
 
     {
-        "name": "Node.js Website",
-        "description": "A website built from scratch in Node JS.",
-        "href": "/projects/website",
-        "git": "",
-        "thumbnail": "/images/project_thumbnails/nodejs.png"
-    },
-
-    {
         "name": "Minesweeper",
         "description": "An HTML Minesweper",
         "href": "/projects/minesweeper",
         "git": "",
         "thumbnail": "/images/project_thumbnails/mine.png"
+    },
+
+    {
+        "name": "Maze",
+        "description": "A - maze - ing",
+        "href": "/projects/maze",
+        "git": "",
+        "thumbnail": "/images/project_thumbnails/mine.png"
+    },
+
+    {
+        "name": "Darwins LTD Scheule Grabber",
+        "description": "10 hours of programming for 30 seconds of hassle",
+        "href": "/projects/schedulegrabber",
+        "git": "",
+        "thumbnail": "/images/project_thumbnails/darwane.jpg"
     }
 ]

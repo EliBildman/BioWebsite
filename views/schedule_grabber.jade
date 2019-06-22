@@ -1,0 +1,28 @@
+extends project_demo
+
+block project
+    script(src="/javascripts/scheduleGrabberHelper.js")
+    script(async, defer, src='https://apis.google.com/js/api.js', onload="initgapi()")
+    .row
+        .col-8.m-auto
+            h4.text-primary#logstatus
+    .row.mt-3
+        .card.bg-primary.col-8.m-auto(style= 'height: width;')
+            .row
+                .col-4.border-right.border-light.p-3.text-center#googlebutton
+                    button.btn.btn-light.ml-auto.d-inline-block
+                        p.m-0 Log In With Google
+                .col-4.p-3
+                    input(type="text", placeholder="Enter Name").form-control#nameinput
+                .col-4.border-light.border-left.p-3.text-center
+                    button.btn.btn-light.ml-auto.d-inline-block#submitbutton
+                        p.m-0 Copy Shifts to Calendar
+    .row.mt-3
+        .col-8.m-auto
+            h4.text-primary Shifts:
+    .row
+        .col-8.m-auto
+            table.table#shifts
+                tbody
+        
+    

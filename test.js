@@ -1,5 +1,5 @@
-var x = [0, 1, 2, 3, 4];
+let x = [1, 2];
+let y = [3, 4];
 
-for(let y of x) {
-    console.log(y);
-}
+x.concat(y);
+console.log(x);
