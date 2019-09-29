@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    .col
+    -for(let i = 0; i < pics.length; ++i)
+        .row
+            img(src= pics[i]).w-100.my-5.mx-auto.col-8

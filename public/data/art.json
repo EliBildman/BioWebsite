@@ -1,0 +1,106 @@
+[
+    {
+        "id": 1,
+        "name": "New York City",
+        "type": "photo-collection",
+        "folder": "/art/photos/newyork",
+        "thumbnail": "/art/photos/newyork/IMG_4274.jpeg",
+        "width": 4032,
+        "height": 3024
+    },
+
+    {
+        "id": 2,
+        "name": "Back In The Bridge",
+        "type": "photo-collection",
+        "folder": "/art/photos/bitb",
+        "thumbnail": "/art/photos/bitb/IMG_4174.jpeg",
+        "width": 3024,
+        "height": 3024
+    },
+
+    {
+        "id": 3,
+        "name": "",
+        "type": "photo",
+        "thumbnail": "/art/photos/IMG_3923.jpeg",
+        "width": 3019,
+        "height": 3925
+    },
+
+    {
+        "id": 4,
+        "name": "",
+        "type": "photo",
+        "thumbnail": "/art/photos/IMG_4052.jpeg",
+        "width": 2920,
+        "height": 3893
+    },
+
+    {
+        "id": 5,
+        "name": "",
+        "type": "photo",
+        "thumbnail": "/art/photos/IMG_4061.jpeg",
+        "width": 3024,
+        "height": 4032
+    },
+
+    {
+        "id": 6,
+        "name": "",
+        "type": "photo",
+        "thumbnail": "/art/photos/IMG_4074.jpeg",
+        "width": 4032,
+        "height": 3024
+    },
+
+    {
+        "id": 7,
+        "name": "",
+        "type": "photo",
+        "thumbnail": "/art/photos/IMG_3918.jpeg",
+        "width": 3024,
+        "height": 3024
+    },
+
+    {
+        "id": 8,
+        "name": "French Tuck",
+        "type": "photo-collection",
+        "folder": "/art/photos/spain",
+        "thumbnail": "/art/photos/spain/IMG_7224.jpeg",
+        "width": 3024,
+        "height": 4032
+    },
+
+    {
+        "id": 9,
+        "name": "Students",
+        "type": "photo-collection",
+        "folder": "/art/photos/students",
+        "thumbnail": "/art/photos/students/IMG_4203.jpeg",
+        "width": 2828,
+        "height": 3530
+    },
+
+    {
+        "id": 10,
+        "name": "'Untitled' by Rex Orange County",
+        "type": "photo-collection",
+        "folder": "/art/photos/untitled-roc",
+        "thumbnail": "/art/photos/untitled-roc/IMG_3510.jpeg",
+        "width": 2411,
+        "height": 2548
+    },
+
+    {
+        "id": 11,
+        "name": "yes",
+        "type": "photo-collection",
+        "folder": "/art/photos/yes",
+        "thumbnail": "/art/photos/yes/IMG_4008.jpeg",
+        "width": 3024,
+        "height": 4032
+    }
+]

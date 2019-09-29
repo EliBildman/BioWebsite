@@ -86,8 +86,6 @@ function uploadToCalendar() {
         gapi.client.calendar.events.insert({
             'calendarId': 'primary',
             'resource': event
-        }).execute().then(() => {
-            
-        });
+        }).execute();
     });
 }

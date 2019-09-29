@@ -2,5 +2,16 @@ extends project_demo
 
 block project
     script(src= "/javascripts/mazeCreation.js")
-    canvas(width = '500' height = '500').border.boder-dark#can
-    button.btn#button save
+    .row
+        .col-xl-6.col-12
+            table(style= "width: 450px; height: 450px;")
+                tbody#maze
+                    - deff = 5;
+                    - for(let y = 0; y < deff; ++y)
+                        tr
+                            - for(let x = 0; x < deff; ++x)
+                                td.border.border-dark(onmousemove= `toggle(event);` onclick= `toggle(event);` id= (x == 0 && y == 0 || x == deff - 1 && y == deff - 1) ? 'end' : '')
+        .col-6
+            button.btn.border-primary.text-primary.m-1#clearbutt Clear
+            button.btn.border-primary.text-primary.m-1#solvebutt Solve
+    h1#post

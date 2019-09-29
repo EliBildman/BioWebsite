@@ -17,25 +17,9 @@
 
     {
         "name": "Minesweeper",
-        "description": "An HTML Minesweper",
+        "description": "An HTML/JS Minesweper",
         "href": "/projects/minesweeper",
         "git": "",
         "thumbnail": "/images/project_thumbnails/mine.png"
-    },
-
-    {
-        "name": "Maze",
-        "description": "A - maze - ing",
-        "href": "/projects/maze",
-        "git": "",
-        "thumbnail": "/images/project_thumbnails/mine.png"
-    },
-
-    {
-        "name": "Darwins LTD Scheule Grabber",
-        "description": "10 hours of programming for 30 seconds of hassle",
-        "href": "/projects/schedulegrabber",
-        "git": "",
-        "thumbnail": "/images/project_thumbnails/darwane.jpg"
     }
 ]

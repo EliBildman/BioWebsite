@@ -15,9 +15,10 @@ html
         h1.m-0.text-primary= page
 
       div.w-100.w-auto-sm.text-center
-        nav.navbar.d-inline-block-sm.pb-0
-          a(href= "/about" class= section === "About" ? "active" : "inactive").nav-link.px-4 About
-          a(href= "/projects" class= section === "Projects" ? "active" : "inactive").nav-link.px-4.border-left.border-right.border-secondary Projects
-          a(href= "/resume" class= section === "Resume" ? "active" : "inactive").nav-link.px-4 Resume
+        nav.navbar.d-inline-block-sm.pb-0.justify-content-center
+          a(href= "/about" class= section === "About" ? "active" : "inactive").nav-link.px-4.border-right.border-secondary About
+          a(href= "/projects" class= section === "Projects" ? "active" : "inactive").nav-link.px-4.border-right.border-secondary Projects
+          a(href= "/resume" class= section === "Resume" ? "active" : "inactive").nav-link.px-4.border-right.border-secondary Resume
+          a(href= "/art" class= section === "Art" ? "active" : "inactive").nav-link.px-4 Art
 
     block content

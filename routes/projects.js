@@ -22,7 +22,7 @@ router.get('/poemgenerator', function(req, res, next) {
 
 router.get('/newPoem', (req, res, next) => {
     if(req.query['security'] === 'bigYam') {
-        var proc = spawn('python', [path.join(__dirname, '..', 'Projects', 'PoemGenerator', 'poemCreator.py'), req.query['lines'], req.query['minLine'], req.query['maxLine']]);
+        var proc = spawn('python', [path.join(__dirname, '..', 'external_projects', 'PoemGenerator', 'poemCreator.py'), req.query['lines'], req.query['minLine'], req.query['maxLine']]);
         proc.stdout.on('data', (data) => {
 
             let poem = data.toString();
@@ -55,7 +55,7 @@ router.get('/wallpapergenerator/description', (req, res, next) => {
 router.get('/wallpapergenerator/generate', (req, res, next) => {
 
     if(req.query['security'] === 'noSmap') {
-        var proc = spawn('sudo', ['python3', path.join(__dirname, '..', 'Projects', 'WallpaperGenerator', 'runner.py'), req.query['design'], req.query['width'], req.query['height'], path.join(__dirname, '..', 'public', 'images', 'wallpapers', req.query['id'] + '.png')]);
+        var proc = spawn('sudo', ['python3', path.join(__dirname, '..', 'external_projects', 'WallpaperGenerator', 'runner.py'), req.query['design'], req.query['width'], req.query['height'], path.join(__dirname, '..', 'public', 'images', 'wallpapers', req.query['id'] + '.png')]);
         //console.log(proc);
         proc.on('close', (data) => {
             res.end("Generated");
@@ -91,8 +91,8 @@ router.get('/maze', (req, res, next) => {
     res.render('maze', {page: "Maze", section: "Projects"});
 });
 
-router.get('/maze/solve', (req, res, next) => {
-    console.log(req.query['data']);
+router.post('/maze/solve', (req, res, next) => {
+    console.log(req.body);
     res.end('recieved');
 });
 

@@ -1,5 +1,5 @@
-let x = [1, 2];
-let y = [3, 4];
+let fs = require('fs');
 
-x.concat(y);
-console.log(x);
+fs.readdir('public/art/photos/bitb', (err, items) => {
+    console.log(items);
+})
