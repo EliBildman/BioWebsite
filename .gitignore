@@ -1,4 +1,5 @@
 
 node_modules/
 public/images/wallpapers/*
-external_projects/MazeSolver/build/
+external_projects/MazeSolver/build/*
+!external_projects/MazeSolver/build/.placeholder
