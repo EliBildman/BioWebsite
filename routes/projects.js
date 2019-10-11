@@ -4,6 +4,7 @@ var path = require('path');
 var router = express.Router();
 var spawn = require('child_process').spawn;
 var clearFolder = require('../tools/clear_folder').clearFolderCondional;
+var formatNLCN = require('../tools/format').formatNLCN;
 var fs = require('fs');
 
 router.get('/', function(req, res, next) {
@@ -92,8 +93,18 @@ router.get('/maze', (req, res, next) => {
 });
 
 router.post('/maze/solve', (req, res, next) => {
-    console.log(req.body);
-    res.end('recieved');
+    var args = JSON.parse(req.body["data"]);
+    //args.unshift(path.join(__dirname, "..", "external_projects", "MazeSolver", "solution.json"));
+    var route = path.join(__dirname, "..", "external_projects", "MazeSolver", "MazeSolver");
+    //console.log("hello");
+    var proc = spawn(route, args);
+    var ans = "";
+    proc.stdout.on('data', (d) => ans += d.toString());
+    proc.on('exit', () => res.end(JSON.stringify(formatNLCN(ans))));
+    // proc.on("exit", () => {
+    //     res.end(fs.readFileSync(args[0]));
+    // });
+
 });
 
 router.get('/schedulegrabber', (req, res, next) => {

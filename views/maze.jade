@@ -6,12 +6,17 @@ block project
         .col-xl-6.col-12
             table(style= "width: 450px; height: 450px;")
                 tbody#maze
-                    - deff = 5;
+                    - deff = 30;
                     - for(let y = 0; y < deff; ++y)
                         tr
                             - for(let x = 0; x < deff; ++x)
                                 td.border.border-dark(onmousemove= `toggle(event);` onclick= `toggle(event);` id= (x == 0 && y == 0 || x == deff - 1 && y == deff - 1) ? 'end' : '')
         .col-6
+            .input-group.mb-2
+                label.input-group-text.rounded-0 Algorithm
+                select.custom-select#lines
+                    option(value= "1") DFS(RULD)
             button.btn.border-primary.text-primary.m-1#clearbutt Clear
             button.btn.border-primary.text-primary.m-1#solvebutt Solve
+            h4#outmessage.text-primary.pt-5
     h1#post

@@ -21,5 +21,13 @@
         "href": "/projects/minesweeper",
         "git": "",
         "thumbnail": "/images/project_thumbnails/mine.png"
+    },
+
+    {
+        "name": "Maze",
+        "description": "U make the maze :O",
+        "href": "/projects/maze",
+        "git": "",
+        "thumbnail": "/images/project_thumbnails/maze.png"
     }
 ]
