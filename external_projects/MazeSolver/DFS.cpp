@@ -50,7 +50,7 @@ struct Solution search(MazeMap *map, struct Coord cur, struct Coord target) {
         next = map->getNeighborUnmarked(cur.x, cur.y);
     }
     
-    return (struct Solution) {-1, nullptr};
+    return (struct Solution) {-1, 0};
 }
 
 struct Solution depthFirstSearch(MazeMap *map) {
