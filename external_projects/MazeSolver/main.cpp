@@ -10,6 +10,7 @@
 #include "DFS.hpp"
 #include <iostream>
 #include <fstream>
+#include <stdlib.h>
 
 bool * convert(int len, const char ** bitmap) {
     bool * map = (bool *) calloc((sizeof(bool)), len);
