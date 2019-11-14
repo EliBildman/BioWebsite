@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "cheerio": "^1.0.0-rc.3",
     "child_process": "^1.0.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
@@ -15,12 +16,13 @@
     "fs": "0.0.1-security",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.1",
     "jsonfile": "^5.0.0",
     "morgan": "~1.9.0",
-    "nodemon": "^1.18.10",
+    "nightmare": "^3.0.2",
+    "nodemon": "^1.19.4",
     "popper": "^1.0.1",
-    "sass": "^1.17.2",
+    "sass": "^1.23.1",
     "serve-favicon": "^2.5.0",
     "slim": "0.0.4"
   }

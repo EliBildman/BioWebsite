@@ -1,5 +1,8 @@
-let fs = require('fs');
+function dick() {
+    for(let i = 0; i < 1000000000; i++) {
+        if(i == 1000000000 - 1) console.log("a");
+    }
+}
 
-fs.readdir('public/art/photos/bitb', (err, items) => {
-    console.log(items);
-})
+dick();
+console.log("b");

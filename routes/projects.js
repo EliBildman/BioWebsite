@@ -5,6 +5,7 @@ var router = express.Router();
 var spawn = require('child_process').spawn;
 var clearFolder = require('../tools/clear_folder').clearFolderCondional;
 var formatNLCN = require('../tools/format').formatNLCN;
+var ddata = require('../tools/ddata');
 var fs = require('fs');
 
 router.get('/', function(req, res, next) {
@@ -94,9 +95,7 @@ router.get('/maze', (req, res, next) => {
 
 router.post('/maze/solve', (req, res, next) => {
     var args = JSON.parse(req.body["data"]);
-
     var route = path.join(__dirname, "..", "external_projects", "MazeSolver", "build", "MazeSolver");
-
     var solve = () => {
         var proc = spawn(route, args);
         var ans = "";
@@ -105,7 +104,7 @@ router.post('/maze/solve', (req, res, next) => {
     }
 
     if(!fs.existsSync(route)) {
-        var buildProc = spawn('make', ['-C', path.join(__dirname, '..', 'external_projects', 'MazeSolver')]);
+        var buildProc = spawn('make', ['-C', path.join(__dirname, '..', 'external_projects', 'MazeSolver')]);   
         buildProc.on('exit', () => {solve()});
     } else {
         solve();
@@ -137,6 +136,14 @@ router.post('/schedulegrabber/post', (req, res, next) => {
         } 
     });
     res.end();
+});
+
+router.get('/ddata', (req, res, next) => {
+    res.render('ddata', {page: "Dining Data", section: "Projects"});
+});
+
+router.post('/ddata/get', (req, res, next) => {
+    ddata.getHistory(req.body.username, req.body.password, (d) => res.end(JSON.stringify(d)));
 });
 
 module.exports = router;

@@ -1,0 +1,89 @@
+extends project_demo
+
+block project
+    script(src="https://www.amcharts.com/lib/4/core.js")
+    script(src="https://www.amcharts.com/lib/4/charts.js")
+    script(src="https://www.amcharts.com/lib/4/themes/animated.js")
+    script(src="https://www.amcharts.com/lib/4/lang/de_DE.js")
+    script(src="https://www.amcharts.com/lib/4/geodata/germanyLow.js")
+    script(src= "/javascripts/ddata/display.js")
+    script(src= "/javascripts/ddata/query.js")
+    form(name="login" style="height: 45px").row#loginForm
+        input(type="text" placeholder="NetID (eg: jsmith)").mr-2.ml-5#user
+        input(type="password" placeholder="Spire Password").mx-2#pass
+        input(type="submit").btn.btn-primary.mx-3.rounded-0#submit
+        img(src="/images/misc/load.gif" style="display: none").img-fluid.h-100#loadingAni
+        h3.text-primary#errorout
+    #display.mt-5(style= "display: none")
+
+        table.table.border-0
+            tr
+                td.border-right(colspan="4")
+                    h5 Tracking Since:
+                    h3.text-primary#entry_oldest
+                td.border-right(colspan="4")
+                    h5 Total Swipes:
+                    h3.text-primary#swipes_total
+                td(colspan="4")
+                    h5 Total Spent:
+                    h3.text-primary#spent_total
+            tr
+                td(colspan="12").p-0
+                    .row.mx-0
+                        .col-6.p-2
+                            h5 Swipe Distribution:
+                            #swipes_freq_pie
+                        .col-6.p-2
+                            h5 Spending Distribution:
+                            #spent_total_pie
+            tr
+                td.border-right(colspan="3")
+                    h5 Days Passed:
+                    h3.text-primary#days
+                td.border-right(colspan="3")
+                    h5 Average Uses/Day:
+                    h3.text-primary#overall_average
+                td.border-right(colspan="3")
+                    h5 Average Swipes/Day:
+                    h3.text-primary#swipes_average
+                td(colspan="3")
+                    h5 Average Spending/Day:
+                    h3.text-primary#spent_average
+            tr
+                td(colspan="12")
+                    .row
+                        .col-auto.pr-0
+                            h5 Swipes Per:
+                        .col-auto
+                            select.form-control#swipes_over_time_selector
+                                option Time of Day
+                                option Day of Week
+                    #swipes_over_time_bar
+            tr
+                td(colspan="12")
+                    .row.mb-3
+                        .col-auto.pr-0
+                            select.form-control#uses_over_time_selector
+                                option Average Uses per Day
+                                option Balances
+                        .col-auto
+                            h5 Over Time
+                    #balances_over_time.row.w-100
+                        .row.w-100
+                            .col
+                                h5#balance_line_lable0
+                                #balance_line0
+                            .col
+                                h5#balance_line_lable1
+                                #balance_line1
+                        .row.w-100
+                            .col
+                                h5#balance_line_lable2
+                                #balance_line2
+                            .col
+                                h5#balance_line_lable3
+                                #balance_line3
+            tr#remaining_balances
+
+                
+                    

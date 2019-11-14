@@ -29,5 +29,13 @@
         "href": "/projects/maze",
         "git": "",
         "thumbnail": "/images/project_thumbnails/maze.png"
+    },
+
+    {
+        "name": "Dining Data",
+        "description": "UMass Amherst student dining data",
+        "href": "/projects/ddata",
+        "git": "",
+        "thumbnail": "/images/project_thumbnails/thebest.png"
     }
 ]
