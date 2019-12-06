@@ -6,6 +6,7 @@ module.exports.getHistory = async function(username, password, callback) {
 
     //idrk why this has to be here
     let x = new Xvfb();
+    x.start();
 
     let nm = Nightmare();
     nm.goto('https://get.cbord.com/umass/full/login.php')
@@ -31,6 +32,9 @@ module.exports.getHistory = async function(username, password, callback) {
             });
         }
     });
+
+    x.stop();
+
 }
 
 function parse(html) {
