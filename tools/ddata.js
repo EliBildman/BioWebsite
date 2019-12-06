@@ -1,9 +1,16 @@
 const cheerio = require('cheerio');
 const Nightmare = require('nightmare');
+const Xvfb =  require('xvfb');
 
 module.exports.getHistory = async function(username, password, callback) {
+
+    //idrk why this has to be here
+    let x = new Xvfb();
+
     let nm = Nightmare();
     nm.goto('https://get.cbord.com/umass/full/login.php')
+    // .end()
+    // .then(console.log);
     .type('#netid_text', username)
     .type('#password_text', password)
     .click('#login_submit')
@@ -42,3 +49,5 @@ function parse(html) {
     }
     return data;
 }
+
+module.exports.getHistory('a', 'a', console.log);
