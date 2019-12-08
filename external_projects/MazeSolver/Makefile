@@ -8,7 +8,9 @@ FLAGS = -c
 all: main
 
 main: main.o DFS.o MazeMap.o Tiles.o
+	rm -f build/MazeSolver
 	${CC} -o build/MazeSolver main.o DFS.o Tiles.o MazeMap.o
+	make clean
 
 main.o: main.cpp
 	${CC} ${FLAGS} main.cpp
@@ -23,7 +25,7 @@ Tiles.o: Tiles.cpp Tiles.hpp
 	${CC} ${FLAGS} Tiles.cpp Tiles.hpp
 
 clean:
-	rm *.o *.gch build/MazeSolver
+	rm *.o *.gch
 
 # Usage:
 # make        # compile all binary
