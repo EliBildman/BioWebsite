@@ -1,8 +1,13 @@
 const cheerio = require('cheerio');
 const Nightmare = require('nightmare');
-const Xvfb =  require('xvfb');
+const Xvfb = require('xvfb');
 
 module.exports.getHistory = async function(username, password, callback) {
+
+    if(username == '' || password == '') {
+        callback({error: 'EMPTY USER/PASS'});
+        return;
+    }
 
     //idrk why this has to be here
     let x = new Xvfb();
@@ -10,8 +15,7 @@ module.exports.getHistory = async function(username, password, callback) {
 
     let nm = Nightmare();
     nm.goto('https://get.cbord.com/umass/full/login.php')
-    // .end()
-    // .then(console.log);
+
     .type('#netid_text', username)
     .type('#password_text', password)
     .click('#login_submit')
@@ -23,17 +27,21 @@ module.exports.getHistory = async function(username, password, callback) {
             nm.click('a.tabletop_left')
             .evaluate(() => document.querySelector('#historyTable').innerHTML)
             .end()
-            .then((re) => callback(parse(re)))
-            .catch(console.log);
+            .then((re) => {
+                callback(parse(re));
+                x.stop();
+            }).catch(console.log);
         } else {
             nm.end()
             .then(() => {
                 callback({error: "BAD LOGIN"});
+                x.stop();
             });
+
         }
     });
 
-    x.stop();
+    
 
 }
 
@@ -54,4 +62,4 @@ function parse(html) {
     return data;
 }
 
-module.exports.getHistory('a', 'a', console.log);
+// module.exports.getHistory('a', 'a', console.log);
