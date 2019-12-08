@@ -8,46 +8,23 @@ FLAGS = -c
 all: main
 
 main: main.o DFS.o MazeMap.o Tiles.o
-	sudo ${CC} -o build/MazeSolver main.o DFS.o Tiles.o MazeMap.o
+	${CC} -o build/MazeSolver main.o DFS.o Tiles.o MazeMap.o
 
 main.o: main.cpp
-	sudo ${CC} ${FLAGS} main.cpp
+	${CC} ${FLAGS} main.cpp
 
 DFS.o: DFS.cpp DFS.hpp
-	sudo ${CC} ${FLAGS} DFS.cpp DFS.hpp
+	${CC} ${FLAGS} DFS.cpp DFS.hpp
 
 MazeMap.o: MazeMap.cpp MazeMap.hpp
-	sudo ${CC} ${FLAGS} MazeMap.cpp MazeMap.hpp
+	${CC} ${FLAGS} MazeMap.cpp MazeMap.hpp
 
 Tiles.o: Tiles.cpp Tiles.hpp
-	sudo ${CC} ${FLAGS} Tiles.cpp Tiles.hpp
+	${CC} ${FLAGS} Tiles.cpp Tiles.hpp
 
 clean:
-	sudo rm *.o *.gch build/MazeSolver
+	rm *.o *.gch build/MazeSolver
 
 # Usage:
 # make        # compile all binary
 # make clean  # remove ALL binaries and objects
-
-# .PHONY = all clean
-
-# CC = g++                       # compiler to use
-
-# LINKERFLAG = -lm
-
-# SRCS := $(wildcard *.cpp)
-# BINS := $(SRCS:%.cpp=%)
-
-# all: ${BINS}
-
-# %: %.o
-# 	@echo "Checking.."
-# 	${CC} ${LINKERFLAG} $< -o $@
-
-# %.o: %.cpp
-# 	@echo "Creating object.."
-# 	${CC} -c $<
-
-# clean:
-# 	@echo "Cleaning up..."
-# 	rm -rvf *.o ${BINS}
