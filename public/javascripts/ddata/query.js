@@ -2,7 +2,7 @@ let filter = ["Meal Plan Office", "PatronImport Location"];
 
 $(document).ready(() => {
     $('form#loginForm').on('submit', submitLogin);
-    loadTestData(1);
+    //loadTestData(1);
 });
 
 function loadTestData(ind) {
