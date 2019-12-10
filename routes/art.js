@@ -4,7 +4,7 @@ var fs = require('fs');
 var path = require('path');
 
 router.get('/', function(req, res, next) {
-    res.render('art', { page: 'Art', section: "Art"});
+    res.render('art/index', { page: 'Art', section: "Art"});
 });
 
 router.get('/display', (req, res, next) => {
@@ -13,10 +13,10 @@ router.get('/display', (req, res, next) => {
     });
     console.log(work)
     if(work.type == 'photo') {
-        res.render('photodisplay', {page: (work.name ? work.name : 'untitled'), section: 'Art', pics: [work.thumbnail]});
+        res.render('art/photodisplay', {page: (work.name ? work.name : 'untitled'), section: 'Art', pics: [work.thumbnail]});
     } else if (work.type == 'photo-collection') {
         fs.readdir(path.join(__dirname, '..', 'public', work.folder), (err, items) => {
-            res.render('photodisplay', {page: (work.name ? work.name : 'untitled'), section: 'Art', pics: items.map((name) => {return path.join(work.folder, name)})});
+            res.render('art/photodisplay', {page: (work.name ? work.name : 'untitled'), section: 'Art', pics: items.map((name) => {return path.join(work.folder, name)})});
         });
     }
 

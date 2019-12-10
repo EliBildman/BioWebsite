@@ -5,7 +5,7 @@ var router = express.Router();
 
 
 router.get('/', function(req, res, next) {
-  res.render('about', { page: 'Eli Bildman', section: "About" });
+  res.render('about/index', { page: 'Eli Bildman', section: "About" });
 });
 
 module.exports = router;

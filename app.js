@@ -49,4 +49,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.locals.basedir = __dirname;
+
 module.exports = app;

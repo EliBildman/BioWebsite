@@ -11,14 +11,14 @@ var fs = require('fs');
 router.get('/', function(req, res, next) {
     jsonfile.readFile(path.join(__dirname, '..', 'public', 'data', 'projects.json'), (err, obj) => {
         if(err) throw err;
-        res.render('projects', {page: "Projects", section: "Projects", projects: obj});
+        res.render('projects/index', {page: "Projects", section: "Projects", projects: obj});
     });
 });
 
 router.get('/poemgenerator', function(req, res, next) {
     jsonfile.readFile(path.join(__dirname, '..', 'public', 'data', 'projects.json'), (err, obj) => {
         if(err) throw err;
-        res.render('poem_generator', {page: "Poem Generator", section: "Projects", desc_link: "/projects/poemgenerator/description"});
+        res.render('projects/poemgenerator/demo', {page: "Poem Generator", section: "Projects", desc_link: "/projects/poemgenerator/description"});
     });
 });
 
@@ -42,15 +42,15 @@ router.get('/newPoem', (req, res, next) => {
 });
 
 router.get('/poemgenerator/description', (req, res, next) => {
-    res.render('poem_generator_desc', {page: "Poem Generator", section: "Projects", demo_link: "/projects/poemgenerator"});
+    res.render('projects/poemgenerator/desc', {page: "Poem Generator", section: "Projects", demo_link: "/projects/poemgenerator"});
 });
 
 router.get('/wallpapergenerator', (req, res, next) => {
-    res.render('wallpaper_generator', {page: "Wallpaper Generator", section: "Projects", desc_link: "/projects/wallpapergenerator/description"});
+    res.render('projects/wallpapergenerator/demo', {page: "Wallpaper Generator", section: "Projects", desc_link: "/projects/wallpapergenerator/description"});
 });
 
 router.get('/wallpapergenerator/description', (req, res, next) => {
-    res.render('wallpaper_generator_desc', {page: "Wallpaper Generator", section: "Projects", demo_link: "/projects/wallpapergenerator"});
+    res.render('projects/wallpapergenerator/desc', {page: "Wallpaper Generator", section: "Projects", demo_link: "/projects/wallpapergenerator"});
 });
 
 
@@ -77,20 +77,16 @@ router.get('/wallpapergenerator/generate', (req, res, next) => {
     }
 });
 
-router.get('/website', (req, res, next) => {
-    res.render('website', {page: "Website", section: "Projects"});
-});
-
 router.get('/myday', (req, res, next) => {
-    res.render('myday', {page: "My Day", section: "Projects"});
+    res.render('projects/myday/demo', {page: "My Day", section: "Projects"});
 });
 
 router.get('/minesweeper', (req, res, next) => {
-    res.render('minesweeper', {page: "Minesweeper", section: "Projects"});
+    res.render('projects/minesweeper/demo', {page: "Minesweeper", section: "Projects"});
 });
 
 router.get('/maze', (req, res, next) => {
-    res.render('maze', {page: "Maze", section: "Projects"});
+    res.render('projects/maze/demo', {page: "Maze", section: "Projects"});
 });
 
 router.post('/maze/solve', (req, res, next) => {
@@ -113,7 +109,7 @@ router.post('/maze/solve', (req, res, next) => {
 });
 
 router.get('/schedulegrabber', (req, res, next) => {
-    res.render('schedule_grabber', {page: "Schedule Grabber", section: "Projects"});
+    res.render('projects/schedule_grabber/demo', {page: "Schedule Grabber", section: "Projects"});
 });
 
 router.post('/schedulegrabber/post', (req, res, next) => {
@@ -139,7 +135,7 @@ router.post('/schedulegrabber/post', (req, res, next) => {
 });
 
 router.get('/ddata', (req, res, next) => {
-    res.render('ddata', {page: "Dining Data", section: "Projects"});
+    res.render('projects/ddata/demo', {page: "Dining Data", section: "Projects"});
 });
 
 router.post('/ddata/get', (req, res, next) => {
