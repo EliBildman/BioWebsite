@@ -9,9 +9,9 @@ function randomCssCol(low, high) {
 }
 
 function getPoem() {
-    var lines = $("#lines").find("option:selected").val();
-    var min = $("#min").find("option:selected").val();
-    var max = $("#max").find("option:selected").val();
+    var lines = 5; //$("#lines").find("option:selected").val();
+    var min = 3; //$("#min").find("option:selected").val();
+    var max = 5; //$("#max").find("option:selected").val();
     if (parseInt(max) < parseInt(min)) {
         max = min;
         $("#max").val(min);

@@ -7,7 +7,7 @@
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.4.1",
     "cheerio": "^1.0.0-rc.3",
     "child_process": "^1.0.2",
     "cookie-parser": "~1.4.3",
@@ -22,7 +22,7 @@
     "nightmare": "^3.0.2",
     "nodemon": "^1.19.4",
     "popper": "^1.0.1",
-    "sass": "^1.23.1",
+    "sass": "^1.23.7",
     "serve-favicon": "^2.5.0",
     "slim": "0.0.4",
     "xvfb": "^0.2.3"

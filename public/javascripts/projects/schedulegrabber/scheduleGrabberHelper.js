@@ -60,7 +60,7 @@ function listShifts(name) {
         list();
     } else {
         $.ajax({
-            url: '/data/ScheduleGrabber/shifts.json'
+            url: '/data/schedulegrabber/shifts.json'
         }).then((data) => {
             shifts = data;
             list();

@@ -1,29 +1,10 @@
 extends /views/projects/_demo
 
 block project
-    script(src="/javascripts/poemGeneratorHelper.js")
-
-    .row#tools.p-3
-        
-        .input-group.mb-2
-            
-            label.input-group-text.rounded-0 Lines
-            select.custom-select#lines
-                -for(let i = 2; i <= 4; ++i)
-                    option(value= i)= i
-                option(selected value= "5") 5
-            label.input-group-text.rounded-0 Minimum Line Length
-            select.custom-select#min
-                -for(let i = 3; i <= 5; ++i)
-                    option(value= i)= i
-            label.input-group-text.rounded-0 Maximum Line Length
-            select.custom-select.rounded-0#max
-                -for(let i = 3; i <= 4; ++i)
-                    option(value= i)= i
-                option(selected value= "5") 5
-            button.btn.btn-dark.rounded-0(onclick="getPoem();" type="button") New Poem
+    script(src="/javascripts/projects/poemgenerator/poemGeneratorHelper.js")
                     
-        
+    .row.ml-1.mb-3
+        button.btn.btn.btn-light.border-secondary(type="button" onclick="getPoem();")
+            h5 New Poem
+    .row#poems
                 
-    .container.p-0
-        .row#poems
