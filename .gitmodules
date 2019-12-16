@@ -1,3 +1,9 @@
 [submodule "external_projects/MazeSolver"]
 	path = external_projects/MazeSolver
 	url = http://github.com/EliBildman/MazeSolver
+[submodule "external_projects/PoemGenerator"]
+	path = external_projects/PoemGenerator
+	url = http://github.com/EliBildman/PoemGenerator
+[submodule "external_projects/WallpaperGenerator"]
+	path = external_projects/WallpaperGenerator
+	url = http://github.com/EliBildman/WallpaperGenerator
