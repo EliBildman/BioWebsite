@@ -57,7 +57,7 @@ router.get('/wallpapergenerator/description', (req, res, next) => {
 router.get('/wallpapergenerator/generate', (req, res, next) => {
 
     if(req.query['security'] === 'noSmap') {
-        var proc = spawn('sudo', ['python3', path.join(__dirname, '..', 'external_projects', 'WallpaperGenerator', 'runner.py'), req.query['design'], req.query['width'], req.query['height'], path.join(__dirname, '..', 'public', 'images', 'wallpapers', req.query['id'] + '.png')]);
+        var proc = spawn('python3', [path.join(__dirname, '..', 'external_projects', 'WallpaperGenerator', 'runner.py'), req.query['design'], req.query['width'], req.query['height'], path.join(__dirname, '..', 'public', 'images', 'wallpapers', req.query['id'] + '.png')]);
         //console.log(proc);
         proc.on('close', (data) => {
             res.end("Generated");
