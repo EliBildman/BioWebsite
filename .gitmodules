@@ -1,0 +1,3 @@
+[submodule "external_projects/MazeSolver"]
+	path = external_projects/MazeSolver
+	url = http://github.com/EliBildman/MazeSolver
