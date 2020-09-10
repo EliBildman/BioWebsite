@@ -8,9 +8,7 @@ This project is end-of-life'd. The stack I used is outdated and some of the fund
 ```bash
 npm run start
 ```
-Run the server on localhost:3000
-
-
+Run the server on localhost:3000  
 
 ```bash
 npm run dev
