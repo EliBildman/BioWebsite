@@ -10,8 +10,6 @@ npm run start
 ```
 Run the server on localhost:3000  
 
-&nbsp;
-
 ```bash
 npm run dev
 ```
